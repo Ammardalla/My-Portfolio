@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+  /* إعدادات عامة */
+
+            :root {
+            --body-color: #0e0e1a;
+            --dark-purple: #1B263B;
+            --neon-blue: #415A77;
+            --soft-lavender: #778DA9;
+            --blue-gray: #E0E1DD;
+            --electric-cyan: #4CC9F0;
+            --hot-pink: #F72585;
+            --emerald-green: #2EC4B6;
+            --duration: 300ms;
+                --accent: linear-gradient(180deg, #ffd700, #b8860b);
+    --line-thickness: 1px;
+        }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+      background-color: #0b132b;
+
+    background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b, #5bc0be, #6fffe9);
+background-size: 1200% 1200%;
+
+animation: aurora 20s linear infinite;
+    color: #f0f8ff;
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1000px;
+  }
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body::before {
+  content: '';
+    background-color: #0b132b;
+
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b, #5bc0be, #6fffe9);
+  background-size: 1200% 1200%;
+  z-index: -2;
+  animation: aurora 20s linear infinite;
+}
+       /* التنقل */
+header {
+    width: 100vw;
+      background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+    opacity: 0.8;
+    display: flex;
+    backdrop-filter: blur(10px);
+      position: relative;
+    z-index: 1000;
+    justify-content: space-evenly;
+}
+             
+.nav-links {
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+  .nav-item{
+    position: relative;
+    padding: 10px 18px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 600;
+    font-size: 16px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    color: var(--blue-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+}
+
+.nav-item img{
+    width: 40px; 
+    height: 40px;
+}
+        
+.nav-item a:hover {
+      color: #ffd700;
+    }
+
+  /* الخطوط الأربعة: top/right/bottom/left */
+  .nav-item::before,
+  .nav-item::after,
+  .nav-item a::before,
+  .nav-item a::after {
+    content: "";
+    position: absolute;
+    background: var(--accent);
+    transition: transform var(--duration);
+  }
+
+  /* الخط الأفقي العلوي */
+  .nav-item::before{
+    top: 0;
+    left: 0;
+    height: var(--line-thickness);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  /* الخط الأفقي السفلي */
+  .nav-item::after{
+    bottom: 0;
+    left: 0;
+    height: var(--line-thickness);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  /* نضيف span بداخل النص لنضع عليه خطين عموديين */
+  .nav-item a::before{
+    top: 0;
+    left: 0;
+    width: var(--line-thickness);
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  .nav-item a::after{
+    top: 0;
+    right: 0;
+    width: var(--line-thickness);
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+
+  /* عند hover: ترسم الخطوط */
+  .nav-item:hover::before{ transform: scaleX(1); }
+  .nav-item:hover::after{ transform: scaleX(1); }
+  .nav-item:hover a::before{ transform: scaleY(1); }
+  .nav-item:hover a::after{ transform: scaleY(1); }
+
+  /* تغيير لون النص عند hover */
+  .nav-links .nav-item:hover{
+    color: var(--accent);
+  }
+/* حالة العنصر النشط */
+.nav-item.active a {
+  color: #ffd700; /* لون ذهبي */
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* الخطوط تظهر كأنها مفعّلة دائمًا للعنصر النشط */
+.nav-item.active::before,
+.nav-item.active::after,
+.nav-item.active a::before,
+.nav-item.active a::after {
+  transform: scale(1);
+}
+
+
+.stars {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.container {
+    max-width: 60%;
+    margin: 20px auto;
+    margin-top: 6rem;
+    padding: 0 20px;
+}
+
+.post {
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+          /* ظهور القسم */
+.post.visible {
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    opacity: 0.6;
+    transform: translateY(0);
+}
+
+.post:hover,
+.post:focus{
+    opacity: 1;
+    transform: scale(1.06);
+    border: 2px solid #6fffe9;
+    box-shadow: 0 0 25px rgba(111, 255, 233, 0.4);
+}
+
+.post img{
+    width: 100%;
+}
+
+.post h2 {
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    color: wheat;
+}
+
+.post p {
+    padding: 1.5rem;
+    line-height: 1.6;
+    font-size: 1.3rem;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);  
+}
+
+@media (max-width: 768px) {
+.nav-item{
+    position: relative;
+    padding: 10px 18px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 400;
+    font-size: 16px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    color: var(--blue-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex; 
+    align-items: center; 
+    gap: 13px;
+}
+
+.nav-item img{
+    width: 24px; 
+    height: 24px;
+}
+
+.container {
+    max-width: 75%;
+    margin: 10px auto;
+    margin-top: 4rem;
+    padding: 0 10px;
+}
+
+.post {
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.post h2 {
+    margin: .5rem;
+    padding: .5rem;
+    font-size: 1rem;
+}
+
+.post p {
+    padding: 1rem;
+    line-height: 1.6;
+    font-size: .9rem;
+}
+
+}
+
+@media (max-width: 576px) {
+
+.nav-item{
+    position: relative;
+    padding: 10px 18px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 400;
+    font-size: 16px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    color: var(--blue-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: .7rem;
+    display: flex; 
+    align-items: center; 
+    gap: 3px;
+}
+
+.nav-item img{
+    width: 14px; 
+    height: 14px;
+}
+
+.container {
+    max-width: 80%;
+    margin: 10px auto;
+    margin-top: 3rem;
+    padding: 0 10px;
+}
+
+.post {
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.post h2 {
+    margin: .5rem;
+    padding: .5rem;
+    font-size: .7rem;
+}
+
+.post p {
+    padding: 1rem;
+    line-height: 1.6;
+    font-size: .6rem;
+}
+
+    }
+
+
+
+
+    </style>
+</head>
+<body>
+
+        <header>
+          <div class="nav-item">
+            <a href="index.html" >
+              <img src="./Home Icon Loading.gif" alt="">
+              <span>Home</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="about.html">
+              <img src="./Info (1).gif" alt="">
+              <span>About</span>
+            </a>
+          </div>
+
+          <div class="nav-item ">
+            <a href="services.html">
+              <img src="./Managed Testing Service.gif" alt="">
+              <span>Services</span>
+            </a>
+          </div>
+
+          <div class="nav-item active">
+            <a href="blog.html">
+              <img src="./Blog (1).gif" alt="">
+              <span>Blog</span>
+            </a>
+          </div>
+      </header>
+
+      <!-- نجوم متلألئة -->
+<div class="stars">
+  <canvas id="starsCanvas"></canvas>
+</div>
+
+    <div class="container ">
+        <div class="post section" tabindex="4">
+            <img src="./blog/1.webp" alt="">
+            <h2>The Future of Web Interfaces: From Static Pages to AI-Driven Interactive Experiences</h2>
+            <p>Posted on October 5, 2025</p>
+            <p>The web today is a far cry from what it was just a decade ago. Pages are no longer static content to be simply read—they have transformed into interactive platforms that respond intelligently and creatively to users. With the rise of artificial intelligence, web interfaces are beginning to adapt to user behavior, anticipate interests, and even tailor themselves to individual preferences.
+
+Imagine visiting an online store where every interaction with products is analyzed in real-time, and the site presents recommendations perfectly aligned with your taste. Experiences like this are now possible thanks to machine learning technologies such as TensorFlow.js and ML5.js, which allow AI algorithms to be embedded directly into the user interface without heavy server-side processing.
+
+AI’s potential goes far beyond content recommendations. It can enhance navigation, suggest shortcuts, or even dynamically adjust the page layout to match a user’s preferences. Developers skilled in integrating these technologies can craft unique experiences that make users feel truly understood.
+
+The biggest challenge lies in maintaining smooth performance and seamless interaction. Every AI feature must be carefully implemented to avoid slowing down load times or disrupting the user experience. Yet, the future looks promising: those who harness these tools wisely will lead the way in designing intelligent interfaces that exceed user expectations.</p>
+        </div>
+
+        <div class="post section" tabindex="5">
+            <img src="./blog/2.webp" alt="">
+            <h2>Augmented Reality on the Web: How AR Will Transform Our Interaction with Websites</h2>
+            <p>Posted on October 3, 2025</p>
+            <p>Augmented reality is no longer limited to games or mobile apps—it is gradually making its way into the web. Today, users can try out products directly from their browsers or explore 3D content that interacts with the surrounding environment.
+
+For instance, furniture websites now allow visitors to virtually place sofas or tables in their own homes using their phone camera before making a purchase. Libraries like Three.js, A-Frame, and WebXR have made it possible to embed these experiences directly into web pages without the need for separate apps.
+
+Designing interactive AR interfaces requires a deep understanding of user experience. Every element, motion, and interaction must feel intuitive and seamless; otherwise, users may experience confusion or fatigue. By optimizing performance and minimizing load times, developers can create experiences that are not only visually engaging but also informative and enjoyable, making websites more immersive and innovative.
+
+Web-based augmented reality opens new horizons for commerce, education, and marketing, transforming the way we interact with digital information. Integrating this technology into interface design presents a unique opportunity for developers to innovate and create truly unforgettable experiences.</p>
+        </div>
+
+        <div class="post section" tabindex="6">
+            <img src="./blog/6.jpg" alt="">
+            <h2>The Importance of Website Accessibility</h2>
+            <p>Posted on October 20, 2025</p>
+            <p>With technological advancements and businesses increasingly relying on the internet, ensuring website accessibility has become a pressing necessity. Accessibility refers to designing and developing websites in a way that allows all individuals, including those with disabilities, to easily access and interact with the content. <br>
+
+What is Accessibility? <br>
+
+Accessibility means that a website can be used by the largest possible number of users, regardless of their physical, sensory, or cognitive abilities. This includes:
+
+Individuals with visual impairments or complete blindness.
+
+People with hearing difficulties.
+
+Those with mobility limitations or physical disabilities.
+
+Individuals with cognitive or learning challenges.
+
+Benefits of Accessible Websites : <br>
+
+Expanding the customer base: The more accessible your site is, the more users can engage with your products or services.
+<br>
+Improving user experience: Inclusive design makes navigation and accessing information easier for all visitors, not just those with disabilities.
+<br>
+Legal compliance: Some countries enforce digital accessibility standards, such as the WCAG (Web Content Accessibility Guidelines).
+<br>
+Enhancing search engine optimization (SEO): Websites that prioritize accessibility are often clearer to search engines, increasing visibility.
+<br>
+Strategies to Achieve Accessibility : <br>
+
+Use alternative text (Alt Text) for images so screen readers can describe visual content.
+<br>
+Design clear and easy-to-click buttons and links suitable for all users.
+<br>
+Provide text versions of audio and video content, such as captions or transcripts.
+<br>
+Choose high-contrast, legible colors to aid users with visual impairments.
+<br>
+Avoid excessive visual or motion effects that could cause discomfort or hinder interaction.
+<br>
+Website accessibility is not just an added feature—it is essential for achieving digital equity, expanding your audience, and enhancing overall user experience. Any project or company aiming for sustainable success should make accessibility an integral part of their digital design.</p>
+        </div>
+
+        <div class="post section" tabindex="7">
+            <img src="./blog/3.jpg" alt="">
+            <h2>Web3 Technologies and Their Impact on Front-End Design</h2>
+            <p>Posted on October 1, 2025</p>
+            <p>Web3 is more than just a buzzword in the digital world—it represents a fundamental shift in how users interact with digital applications. Decentralized applications (DApps), cryptocurrencies, and smart contracts are reshaping the way front-end interfaces should be designed.
+
+Designing Web3 interfaces requires simplifying complex technologies for everyday users. Digital wallets, for instance, must be intuitive and reliable while remaining secure against errors and vulnerabilities. The challenge lies in seamlessly blending security with user experience—a hallmark of innovative developers in this space.
+
+Web3 applications, such as digital marketplaces or blockchain-based games, demand engaging and interactive interfaces that encourage users to explore content. This includes clear indicators, interactive buttons, and designs that make complex operations, like sending cryptocurrencies or signing smart contracts, easy to understand.
+
+Web3 opens the door to an entirely new user experience, where control and transparency become central to design. Developers who master Web3 interface design can deliver innovative experiences that combine cutting-edge technology with simplicity and ease of use.</p>
+        </div>
+
+            <div class="post section" tabindex="9">
+                <img src="./blog/4.jpg" alt="">
+            <h2>The Impact of Generative AI on User Interface Design</h2>
+            <p>Posted on October 1, 2025</p>
+            <p>Generative AI is no longer limited to producing text or images—it has become a powerful tool for enhancing user experience on the web. Interfaces can now adapt to user needs and automatically generate personalized content, such as suggesting new UI elements or designing color schemes that align with individual user behavior.
+
+Tools like Figma AI and the ChatGPT API are helping designers and developers build interfaces more quickly while maintaining creativity and design quality. Generative AI can suggest layouts, optimize spacing between elements, and even adjust images to fit the context seamlessly.
+
+The biggest challenge lies in using these technologies ethically. User privacy must be protected, and the accuracy of generated content must be ensured. Yet the benefits are substantial: more interactive interfaces, highly personalized experiences, and reduced development time for large projects.
+
+Integrating generative AI into front-end design means that the future won’t just be about creating visually appealing pages—it will be about crafting intelligent experiences that adapt uniquely to each user.</p>
+        </div>
+
+        <div class="post section" tabindex="10">
+            <img src="./blog/5.webp" alt="">
+            <h2>Mixed Reality Applications in Education and Training</h2>
+            <p>Posted on October 1, 2025</p>
+            <p>Mixed reality, which combines virtual reality and augmented reality, creates immersive learning environments where students or trainees can interact as if they were experiencing reality firsthand. This technology is increasingly appearing on the web, allowing learners to explore virtual laboratories or practice hands-on skills without the need for expensive equipment.
+
+Designing mixed reality interfaces requires a different approach: every interaction must be intuitive, and every visual element should help users understand the virtual environment. Using libraries like WebXR and Three.js enables developers to build interactive experiences directly in the browser, making learning more dynamic and engaging.
+
+Mixed reality can significantly enhance education in fields such as medicine, engineering, and the arts, allowing users to safely and effectively practice simulations. Developers skilled in crafting these interfaces provide immersive learning experiences that boost student engagement and improve learning outcomes in tangible ways.
+
+As technology continues to advance, web-based mixed reality is becoming a powerful tool to redefine how we learn and train, opening new horizons for innovative interfaces that blend education with digital interaction.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 My Portfolio Blog
+    </footer>
+
+    <script>
+  /* نجوم متلألئة */
+  const starsCanvas = document.getElementById('starsCanvas');
+  const ctxStars = starsCanvas.getContext('2d');
+  let stars = [];
+
+  function resizeStars() {
+    starsCanvas.width = window.innerWidth;
+    starsCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeStars);
+  resizeStars();
+
+  function createStars(count) {
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        radius: Math.random() * 1.5,
+        alpha: Math.random(),
+        dx: (Math.random() - 0.5) * 0.2,
+        dy: (Math.random() - 0.5) * 0.2
+      });
+    }
+  }
+
+  createStars(150);
+
+  function animateStars() {
+    ctxStars.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    stars.forEach(star => {
+      star.x += star.dx;
+      star.y += star.dy;
+      if (star.x < 0 || star.x > window.innerWidth) star.dx *= -1;
+      if (star.y < 0 || star.y > window.innerHeight) star.dy *= -1;
+      ctxStars.globalAlpha = star.alpha;
+      ctxStars.fillStyle = 'white';
+      ctxStars.beginPath();
+      ctxStars.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctxStars.fill();
+    });
+    requestAnimationFrame(animateStars);
+  }
+
+  animateStars();
+
+  document.addEventListener('mousemove', e => {
+    stars.forEach(star => {
+      star.x += e.movementX * 0.05;
+      star.y += e.movementY * 0.05;
+    });
+  });
+
+  /* تفعيل ظهور الأقسام */
+  function checkVisibility() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
+  }
+  const navItems = document.querySelectorAll('.nav-item');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // إزالة الكلاس active من الجميع
+    navItems.forEach(i => i.classList.remove('active'));
+    // إضافة الكلاس للعنصر المضغوط
+    item.classList.add('active');
+  });
+});
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('load', checkVisibility);
+  
+</script>
+
+</body>
+</html>
+
+
+  

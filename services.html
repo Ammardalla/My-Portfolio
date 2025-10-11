@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Services</title>
+<style>
+  /* إعدادات عامة */
+
+            :root {
+            --body-color: #0e0e1a;
+            --dark-purple: #1B263B;
+            --neon-blue: #415A77;
+            --soft-lavender: #778DA9;
+            --blue-gray: #E0E1DD;
+            --electric-cyan: #4CC9F0;
+            --hot-pink: #F72585;
+            --emerald-green: #2EC4B6;
+            --duration: 300ms;
+                --accent: linear-gradient(180deg, #ffd700, #b8860b);
+    --line-thickness: 1px;
+        }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+      background-color: #0b132b;
+
+    background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b, #5bc0be, #6fffe9);
+background-size: 1200% 1200%;
+
+animation: aurora 20s linear infinite;
+    color: #f0f8ff;
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+    perspective: 1000px;
+  }
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body::before {
+  content: '';
+    background-color: #0b132b;
+
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b, #5bc0be, #6fffe9);
+  background-size: 1200% 1200%;
+  z-index: -2;
+  animation: aurora 20s linear infinite;
+}
+       /* التنقل */
+header {
+    width: 100vw;
+      background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+    opacity: 0.8;
+    display: flex;
+    backdrop-filter: blur(10px);
+      position: relative;
+    z-index: 1000;
+    justify-content: space-evenly;
+}
+             
+.nav-links {
+    width: 100%;
+    height: 100%;
+    padding: 1px;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+  
+  .nav-item{
+    position: relative;
+    padding: 10px 18px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 600;
+    font-size: 16px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    color: var(--blue-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1.4rem;
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+}
+.nav-item img {
+    width: 40px; 
+    height: 40px;
+}
+
+.nav-item a:hover {
+      color: #ffd700;
+    }
+
+  /* الخطوط الأربعة: top/right/bottom/left */
+  .nav-item::before,
+  .nav-item::after,
+  .nav-item a::before,
+  .nav-item a::after {
+    content: "";
+    position: absolute;
+    background: var(--accent);
+    transition: transform var(--duration);
+  }
+
+  /* الخط الأفقي العلوي */
+  .nav-item::before{
+    top: 0;
+    left: 0;
+    height: var(--line-thickness);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  /* الخط الأفقي السفلي */
+  .nav-item::after{
+    bottom: 0;
+    left: 0;
+    height: var(--line-thickness);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+
+  /* نضيف span بداخل النص لنضع عليه خطين عموديين */
+  .nav-item a::before{
+    top: 0;
+    left: 0;
+    width: var(--line-thickness);
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  .nav-item a::after{
+    top: 0;
+    right: 0;
+    width: var(--line-thickness);
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+
+  /* عند hover: ترسم الخطوط */
+  .nav-item:hover::before{ transform: scaleX(1); }
+  .nav-item:hover::after{ transform: scaleX(1); }
+  .nav-item:hover a::before{ transform: scaleY(1); }
+  .nav-item:hover a::after{ transform: scaleY(1); }
+
+  /* تغيير لون النص عند hover */
+  .nav-links .nav-item:hover{
+    color: var(--accent);
+  }
+/* حالة العنصر النشط */
+.nav-item.active a {
+  color: #ffd700; /* لون ذهبي */
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* الخطوط تظهر كأنها مفعّلة دائمًا للعنصر النشط */
+.nav-item.active::before,
+.nav-item.active::after,
+.nav-item.active a::before,
+.nav-item.active a::after {
+  transform: scale(1);
+}
+
+
+  /* نجوم متلألئة */
+  .stars {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0;
+  }
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* المحتوى */
+  .content {
+    margin-top: 4rem;
+    z-index: 1;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* كل قسم */
+  .section {
+    margin: 3rem;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  /* ظهور القسم */
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .description:hover,
+  .description:focus {
+  transform: scale(1.06);
+    border: 4px solid #6fffe9;
+
+  box-shadow: 0 0 25px rgba(111, 255, 233, 0.4);
+}
+
+  /* الصورة */
+
+    .flip-card {
+    background-color: transparent;
+    width: 30%;
+    height: 50vh;
+    perspective: 1000px;
+    margin: 2rem;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .flip-card-front {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flip-card-front img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+
+  .flip-card-back {
+    padding: .4rem;
+    font-size: 1.2em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    transform: rotateX(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* النص */
+  .description {
+    margin: 2rem;
+    max-width: 60%;
+    padding: .4rem;
+    font-size: 1.2em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+  .image-container img:hover,
+  .image-container img:focus {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(111, 255, 233, 0.4);
+}
+
+
+@media (max-width: 768px) {
+  .nav-item{
+    position: relative;
+    padding: 12px 12px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 600;
+    font-size: 16px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+}
+
+
+.nav-item img{
+ width: 30px; 
+ height: 30px;
+}
+
+  .section {
+    margin: 2rem;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+      .flip-card {
+    background-color: transparent;
+    width: 60%;
+    height: 50vh;
+    perspective: 1000px;
+    margin: 1rem;
+  }
+   .flip-card-back {
+    padding: .4rem;
+    font-size: 1em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    transform: rotateX(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* النص */
+  .description {
+    margin: 2rem;
+    max-width: 800%;
+    padding: .4rem;
+    font-size: 1em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+
+}
+
+
+@media (max-width: 576px) {
+  .nav-item{
+    position: relative;
+    padding: 8px 8px;
+    cursor: pointer;
+    color: #222;
+    font-weight: 400;
+    font-size: 14px;
+    overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
+    transition: color var(--duration);
+  }
+
+.nav-item a {
+    font-weight: 500;
+    font-size: .8rem;
+    display: flex; 
+    align-items: center; 
+    gap: 4px;
+}
+
+
+.nav-item img{
+ width: 20px; 
+ height: 20px;
+}
+
+  .section {
+    margin: 1rem;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .flip-card {
+    background-color: transparent;
+    width: 80%;
+    height: 50vh;
+    perspective: 1000px;
+    margin: 1rem;
+  }
+
+   .flip-card-back {
+    padding: .4rem;
+    font-size: .8em;
+    line-height: 2;
+  }
+
+  /* النص */
+  .description {
+    margin: 1rem;
+    max-width: 90%;
+    padding: .4rem;
+    font-size: 1em;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  }
+
+  }
+
+</style>
+</head>
+<body>
+
+        <header>
+          <div class="nav-item">
+            <a href="index.html">
+              <img src="./Home Icon Loading.gif" alt="">
+              <span>Home</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="about.html">
+              <img src="./Info (1).gif" alt="">
+              <span>About</span>
+            </a>
+          </div>
+
+          <div class="nav-item active">
+            <a href="services.html">
+              <img src="./Managed Testing Service.gif" alt="">
+              <span>Services</span>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="blog.html">
+              <img src="./Blog (1).gif" alt="">
+              <span>Blog</span>
+            </a>
+          </div>
+      </header>
+
+<!-- نجوم متلألئة -->
+<div class="stars">
+  <canvas id="starsCanvas"></canvas>
+</div>
+
+<!-- المحتوى الرئيسي -->
+<div class="content">
+  
+  <!-- القسم 1 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/1.png" alt="Step 1">
+    </div>
+    <div class="flip-card-back">
+      <p>After starting your own business, you might be wondering: What is the best step I can take to improve my work and the services I offer?</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>You sits there, surrounded by thoughts — wondering what step to take next, how to make your business grow, how to leave a lasting mark.
+He’s tried ads, relied on loyal clients, but deep down he knows something is missing — one step that could change everything.
+
+That quiet moment before the big decision — the decision that transforms a small business into an open gateway to the world: the digital world.
+Imagine your business being visible anytime, anywhere… where customers find you before you even look for them.
+
+A website isn’t just an online page — it’s your digital identity, your mark of trust and professionalism.
+Those who have a website speak to the world in their own voice.
+Those who don’t… stay unseen, waiting for light from elsewhere.
+
+Now, as you think of your next move — remember: the future doesn’t wait.
+Start today. Build your digital presence.
+Let the world know who you are and what you offer.
+Every success begins with an idea — and every idea needs a platform to be seen. Your website is that beginning.</p>    </div>
+  </div>
+
+  <!-- القسم 2 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/2.png" alt="Step 2">
+    </div>
+    <div class="flip-card-back">
+      <p>The best step you can take is to create a digital visual identity for your business — a unique fingerprint that sets you apart from similar projects. This should be done with the help of a skilled professional who can truly understand you and your ideas. I don’t consider your project just another job; it becomes a part of my own work. Every website I develop, I treat as if it were my own.</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>Every idea begins with a spark — that moment when a business owner shares his dreams, goals, and the vision of what his project could become.
+In that moment, what he needs most isn’t someone who listens, but someone who understands.
+
+I don’t just create “websites.” I build a digital presence that truly reflects your identity and goals.
+I listen, analyze, and transform your thoughts into a complete online experience that represents you perfectly.
+
+Working with me isn’t just execution — it’s a genuine partnership that starts with deep understanding and ends with results that speak for themselves.
+Together, we’ll transform your idea into a website that attracts, engages, and elevates your brand in your market.
+
+Choose someone who understands you before they build for you.
+Start with me — let’s create your digital presence exactly as you envisioned it.</p>    </div>
+  </div>
+
+  <!-- القسم 3 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/3.png" alt="Step 3">
+    </div>
+    <div class="flip-card-back">
+      <p>After discussing your ideas, your business model, and identifying your target audience—understanding their interests and what attracts them—we can review the proposals together to develop the best action plan and the most effective design that adds real value to your project.</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>When the meeting ends, my work begins.
+That’s when I start reshaping your ideas, studying them, and refining them into something clearer and stronger.
+Every detail of your project is treated as an investment — nothing is left to chance.
+
+I study your audience, goals, and brand message, then turn all that into a solid digital strategy built for real results.
+Because executing an idea without understanding it is like building a house without a design.
+I always start with the blueprint — the vision, the meaning, and the small details that make a big difference.
+
+My work isn’t just “coding.” It’s strategic thinking, planning, and building a real path to your success.
+I’m not just looking for a new project — I’m looking for a new story to leave my mark on.
+
+Is it time to start writing your story together?</p>    </div>
+  </div>
+
+  <!-- القسم 4 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/4.png" alt="Step 4">
+    </div>
+    <div class="flip-card-back">
+      <p>Now it’s my turn to put forth my utmost effort to turn your ideas into reality — into a website that meets your business needs with a structure tailored to your operations. The goal is to increase visitors and enhance your services with the help of the best designers and graphic artists, using the most suitable technologies for your business and website. I’m not simply striving to work — I’m striving to excel.</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>Then comes my favorite part — the execution.
+This is where ideas take shape, and plans become a living, breathing digital experience.
+Every line of code carries precision, intention, and the spirit of the dream you shared with me.
+
+I don’t just code — I build your online presence with professionalism and attention to every aspect of your brand: design, usability, performance, and impact.
+Each project has its own fingerprint, and every client has a story worth telling. My job is to make that story shine.
+
+Commitment isn’t a slogan — it’s how I work.
+I treat every project as if it were my own, ensuring it turns out exactly as you deserve.
+
+Start now — let me code your idea into a powerful platform for your future.</p>    </div>
+  </div>
+
+  <!-- القسم 5 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/5.png" alt="Step 5">
+    </div>
+    <div class="flip-card-back">
+      <p>After you’ve brought your project to life in the real world, it’s my turn to bring it to life in the virtual world. In this age of progress and technology, a website has become just as important as the business itself— achieving the best results that meet and even exceed your expectations.</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>That moment when the client finally sees their website completed…
+It’s not just as they imagined — it’s better.
+Every detail perfect, every color balanced, every idea brought to life with clarity and beauty.
+
+All the effort, planning, and dedication come together to create a result that reflects their ambition.
+I don’t deliver “a website” — I deliver a full success experience, from the very first idea to the final smile.
+
+My goal is for every client to feel they didn’t just hire a developer — they found a partner who truly understood their dream and made it real.
+When you’re smiling because the result exceeded your expectations, I know the work was done right.
+
+That’s when your new digital story begins — with confidence, strength, and a brand that stands out.</p>    </div>
+  </div>
+
+  <!-- القسم 6 -->
+  <div class="section">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="./service-photo/6.png" alt="Step 6">
+    </div>
+    <div class="flip-card-back">
+      <p>Integrating your project with the internet opens new horizons for growth and ensures wider reach. Technology has become an essential part of our lives — so act quickly to secure your online presence and be among the pioneers, no matter what field you’re in.</p>
+    </div>
+  </div>
+</div>
+    <div class="description">
+<p>Now, everything has changed.
+What began as a simple idea has become a known name — a brand that people talk about, a business that grows every day.
+More clients, more trust, more visibility — a stronger digital presence than ever before.
+
+This is where real growth begins — when your online presence becomes a true force that drives your business forward.
+It’s not luck; it’s the result of planning, creativity, and professional execution that started with one decision: to build your website.
+
+Every digital success story began the same way — with an idea, a meeting, and a partnership with someone who knows how to create results.
+Will your story be the next success?
+
+Start today — and become the business owner whose growth story inspires others.</p>    </div>
+  </div>
+
+</div>
+
+<script>
+  /* نجوم متلألئة */
+  const starsCanvas = document.getElementById('starsCanvas');
+  const ctxStars = starsCanvas.getContext('2d');
+  let stars = [];
+
+  function resizeStars() {
+    starsCanvas.width = window.innerWidth;
+    starsCanvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeStars);
+  resizeStars();
+
+  function createStars(count) {
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        radius: Math.random() * 1.5,
+        alpha: Math.random(),
+        dx: (Math.random() - 0.5) * 0.2,
+        dy: (Math.random() - 0.5) * 0.2
+      });
+    }
+  }
+
+  createStars(150);
+
+  function animateStars() {
+    ctxStars.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    stars.forEach(star => {
+      star.x += star.dx;
+      star.y += star.dy;
+      if (star.x < 0 || star.x > window.innerWidth) star.dx *= -1;
+      if (star.y < 0 || star.y > window.innerHeight) star.dy *= -1;
+      ctxStars.globalAlpha = star.alpha;
+      ctxStars.fillStyle = 'white';
+      ctxStars.beginPath();
+      ctxStars.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctxStars.fill();
+    });
+    requestAnimationFrame(animateStars);
+  }
+
+  animateStars();
+
+  document.addEventListener('mousemove', e => {
+    stars.forEach(star => {
+      star.x += e.movementX * 0.05;
+      star.y += e.movementY * 0.05;
+    });
+  });
+
+  /* تفعيل ظهور الأقسام */
+  function checkVisibility() {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8 && rect.bottom > window.innerHeight * 0.2) {
+        section.classList.add('visible');
+      } else {
+        section.classList.remove('visible');
+      }
+    });
+  }
+  const navItems = document.querySelectorAll('.nav-item');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    // إزالة الكلاس active من الجميع
+    navItems.forEach(i => i.classList.remove('active'));
+    // إضافة الكلاس للعنصر المضغوط
+    item.classList.add('active');
+  });
+});
+
+  window.addEventListener('scroll', checkVisibility);
+  window.addEventListener('load', checkVisibility);
+</script>
+
+</body>
+</html>
