@@ -311,7 +311,7 @@ header {
   color: var(--btn-text);
   text-decoration: none;
   border: none;
-  width: 20%;
+  width: 18%;
   padding-top: 4%;
   padding-bottom: 4%;
   margin-bottom: 3rem;
@@ -1065,6 +1065,44 @@ main {
   opacity: 1;
   transform: translateY(-1px);
   box-shadow: 0 0 10px #00f2fe;
+}
+
+  /*Education Section */
+#main-s8 {
+  margin: 0;
+
+}
+
+#s8-div1, #s8-div2 {
+  margin: .5rem;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(25,25,35,0.8);
+  box-shadow: 0 0 10px #00f2fe;
+}
+#s8-div3{
+  display: grid;
+  grid-auto-flow: column; /* يجعل العناصر في أعمدة */
+  gap: 10px;
+  margin-top: 20px;
+}
+#s8-div3 ul li{
+  font-size:medium;
+  margin: 6px;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h2{
+  color: wheat;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+}
+#s8-div2 ul{
+  font-size: small;
+  margin: 1rem;
 }
 
 @media (max-width: 1256px){
