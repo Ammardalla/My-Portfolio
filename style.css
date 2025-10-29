@@ -411,7 +411,7 @@ h3:nth-child(10){ transform:translateZ(45px); }
 
 .video-section {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh; 
   overflow: hidden;
 }
@@ -429,13 +429,12 @@ h3:nth-child(10){ transform:translateZ(45px); }
 
 .section {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   position: absolute;
   top: 0;
   left: 0;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
   opacity: 0;
   transform: rotateX(0);
   transition: transform 1s ease, opacity 1s ease;
@@ -479,15 +478,22 @@ h3:nth-child(10){ transform:translateZ(45px); }
   width: 100%;
   text-align: center;
   color: var(--p-color);
+  font-size: 1.6rem;
 }
 
 #s2-header h1{
   margin: 0;
   color: #0a0a0a;
   border-radius: 6px;
-  width: 30%;
+  width: 25%;
   background: linear-gradient(200deg, #ffec80, #d4af37);
   height: 100%;
+  font-size: 2.4rem;
+}
+
+#s2-header a{
+  width: 25%;
+  font-size: 2.4rem;
 }
  
 main {
@@ -609,15 +615,22 @@ main {
   width: 100%;
   text-align: center;
   color: var(--p-color);
+  font-size: 1.6rem;
 }
 
 #s3-header h1{
   margin: 0;
   color: #0a0a0a;
   border-radius: 6px;
-  width: 30%;
+  width: 25%;
   background: linear-gradient(200deg, #ffec80, #d4af37);
   height: 100%;
+  font-size: 2.4rem;
+}
+
+#s3-header a{
+  width: 25%;
+  font-size: 2.4rem;
 }
 
 .chart-section {
@@ -1081,14 +1094,33 @@ main {
   background: rgba(25,25,35,0.8);
   box-shadow: 0 0 10px #00f2fe;
 }
+
+#s8-div1 h5{
+  font-size: 2rem;
+}
+
+#s8-div1 h6{
+  font-size: 1rem;
+}
+
 #s8-div3{
   display: grid;
-  grid-auto-flow: column; /* يجعل العناصر في أعمدة */
+  grid-auto-flow: column;
   gap: 10px;
+  justify-content: space-between;
   margin-top: 20px;
 }
+
+#s8-div3 h6{
+  font-size: 1.6rem;
+}
+
+#s8-div2 h5{
+  font-size: 1.6rem;
+}
+
 #s8-div3 ul li{
-  font-size:medium;
+  font-size:larger;
   margin: 6px;
 }
 #s8-div3 ul li a{
@@ -1099,10 +1131,10 @@ main {
 }
 #s8-div2 .s8-h2{
   color: wheat;
+  font-size: 2rem;
 }
 #s8-div2 ul{
-  font-size: small;
-  margin: 1rem;
+  font-size: .9rem;
 }
 
 @media (max-width: 1256px){
@@ -1134,13 +1166,19 @@ main {
     height: 30px;
 }
 figure {
-  visibility: hidden;
-  width: 10%;
+  position: relative;
+  visibility: visible;
+  width: 25%;
+  font-size: 6px;
+}
+
+figure h3{
+  font-size: 10px;
 }
 
   .theme-toggle {
     cursor: pointer;
-    width: 60px;
+    width: 50px;
     height: 25px;
     border-radius: 20px;
     background: linear-gradient(145deg, #3a3a3a, #2a2a2a); /* Dark gradient by default */
@@ -1165,7 +1203,7 @@ figure {
   }
 
 body.light .toggle-circle {
-  transform: translateX(170%);
+  transform: translateX(140%);
   background-color: #ffd93b; /* Yellow circle for light theme */
 }
 
@@ -1209,7 +1247,7 @@ body.light .toggle-circle {
 #card-btn{
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   bottom: 0;
 }
 
@@ -1219,11 +1257,12 @@ body.light .toggle-circle {
   color: var(--btn-text);
   text-decoration: none;
   border: none;
-  width: 20%;
+  width: 18%;
+  height: 70%;
   padding-top: 4%;
   padding-bottom: 4%;
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   display: inline-block;
@@ -1278,15 +1317,53 @@ body.light .toggle-circle {
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
 }
 #s3 #s3-p.item {
-  padding: 1.2rem;
+  padding: 1rem;
     text-align: justify;
   color: #e0d8d8;
-    font-size:  1rem;
+    font-size:  .8rem;
     line-height: 1.1;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
 }
+.chart-section {
+    margin-top: 1rem;
+    grid-column: 1;
+    width: 100%;
+    height: 30vh;
+    background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
+    padding: 0.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease, transform 0.3s ease;
+    perspective: 1000px;
+} 
+
+
+#main-cv{
+  display: block;
+  margin: 0;
+}
+
+.cv-section {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 60vw;
+    height: 20vh;
+    text-align: center;
+    color: #fff;
+    background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
+    padding: 0.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease, transform 0.3s ease;
+    perspective: 100px;
+}
+
 
 .cv-section:hover{
     background: rgba(25,25,35,1);
@@ -1298,9 +1375,352 @@ body.light .toggle-circle {
 }
 
 .cv-title {
-  margin: .6rem;
-  font-size: 1.2rem;
+  margin: .1rem;
+  font-size: 1rem;
   text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff44;
+}
+
+.cv-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: .2rem;
+  width: 100%;
+  height: 40%;
+  margin-top: 1rem;
+}
+
+
+.btn-3d {
+  margin-top: .1rem;
+  position: relative;
+  width: 100%;
+  font-size: .6rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(100deg, #ffd700, #b8860b);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+#reseume-p{
+  margin: .1rem;
+  text-align: center;
+  color: #e0d8d8;
+  font-size:  .8rem;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+.card1 {
+  width: 25vw;
+  height: 60vh;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease, box-shadow 0.3s ease;
+  background: #2b2b2b;
+}
+
+.card1 img {
+  width: 100%;
+  height: 20%;
+  display: block;
+  transform: translateZ(40px);
+  transition: transform 0.3s ease;
+}
+
+.card1-content {
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  transform: translateZ(30px);
+}
+
+.card1-content h2 {
+  margin: 15px 0 15px 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.card1-content p {
+  color: #ccc;
+  line-height: 1.2;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.card1-buttons {
+  text-align: center;
+  margin-top: 10%;
+  padding: 5px 10px;
+  background: linear-gradient(100deg, #ffd700, #b8860b);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  transform: translateZ(20px);
+}
+
+.card1-buttons a{
+  font-size: .8rem;
+}
+
+#main-s8 {
+  margin: 0;
+}
+
+#s8-div1, #s8-div2 {
+  margin: .2rem;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(25,25,35,0.8);
+  box-shadow: 0 0 10px #00f2fe;
+  font-size: .8rem;
+}
+#s8-div3{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#s8-div3 h6{
+  font-size: 21px;
+}
+#s8-div3 ul li{
+  font-size: 12px;
+  margin: 0;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h5{
+  color: wheat;
+  font-size: 1.2rem;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+}
+
+#s8-div1 h6{
+  font-size: 1rem;
+}
+
+#s8-div3 h6{
+  font-size: 1rem;
+}
+
+#s8-div2 h5{
+  font-size: 1rem;
+}
+
+#s8-div3 ul li{
+  font-size:.8rem;
+  margin: 3px;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h2{
+  color: wheat;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+  font-size: 1rem;
+}
+#s8-div2 ul{
+  font-size: .9rem;
+}
+
+  #s2-header{
+      height: 16%;
+    opacity: 0.6;
+    text-align: center;
+    align-items: center;
+  }
+  #s2-header p{
+    width: 50%;
+    text-align: center;
+    color: var(--p-color);
+    font-size: 1.2rem;
+  }
+  #s2-header h1{
+    padding: 0;
+    margin: 0;
+    color: #0a0a0a;
+    border-radius: 6px;
+    width: 20%;
+    background: linear-gradient(200deg, #ffec80, #d4af37);
+    height: 100%;
+    padding-top: .1em;
+    font-size: 1.4rem;
+  }
+  #s2-header a{
+    margin: 0;
+    color: #0a0a0a;
+    border-radius: 6px;
+    width: 20%;
+    background: linear-gradient(200deg, #ffec80, #d4af37);
+    height: 100%;
+    padding-top: .1em;
+    font-size: 1.4rem;
+  }
+
+#main-contact{
+  opacity: 0.8;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: .8rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.contact1-so1{
+  margin: 0;
+  grid-column: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
+  box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
+  border-radius: 24px;
+}
+
+.contact1-so1 h2{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #888;
+  letter-spacing: 2px;
+}
+
+.social-link2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  transition: background .18s, transform .08s;
+  width: 60%;
+  margin: 0.3rem auto;
+  padding: 0.3rem;    
+}
+
+.social-link2:hover,
+.social-link2:focus {
+  background: rgba(40, 38, 38, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px #00f2fe;
+  outline: none;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.social-text {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#contact-form{
+  margin-top: 1rem;
+}
+
+#contact-form form {
+  margin: .6rem;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.form-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #888;
+  letter-spacing: 2px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  background: #333;
+  color: #fff;
+  outline: none;
+  transition: all 0.2s;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  box-shadow: 0 0 10px #00f2fe;
+}
+
+#contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.options {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.options legend {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+#contact-form button {
+  margin-top: 1.4rem;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(100deg, #ffd700, #b8860b);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  color: #222;
+  letter-spacing: .5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 }
@@ -1333,14 +1753,19 @@ body.light .toggle-circle {
     height: 24px;
 }
 figure {
-  visibility: hidden;
-  width: 10%;
+  position: relative;
+  visibility: visible;
+  width: 25%;
+  font-size: 2px;
 }
 
+figure h3{
+  font-size: 10px;
+}
   .theme-toggle {
     cursor: pointer;
-    width: 60px;
-    height: 25px;
+    width: 45px;
+    height: 23px;
     border-radius: 20px;
     background: linear-gradient(145deg, #3a3a3a, #2a2a2a); /* Dark gradient by default */
     position: relative;
@@ -1364,7 +1789,7 @@ figure {
   }
 
     body.light .toggle-circle {
-      transform: translateX(170%);
+      transform: translateX(110%);
       background-color: #ffd93b; /* Yellow circle for light theme */
   }
 
@@ -1418,7 +1843,7 @@ figure {
   color: var(--btn-text);
   text-decoration: none;
   border: none;
-  width: 20%;
+  width: 18%;
   padding-top: 4%;
   padding-bottom: 4%;
   margin-bottom: 1.5rem;
@@ -1463,10 +1888,10 @@ figure {
     align-items: center;
   }
   #s2-header p{
-    width: 100%;
+    width: 50%;
     text-align: center;
     color: var(--p-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   #s2-header h1{
     padding: 0;
@@ -1475,31 +1900,31 @@ figure {
     border-radius: 6px;
     width: 20%;
     background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 80%;
+    height: 100%;
     padding-top: .1em;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
   #s2-header a{
-        margin: 0;
+    margin: 0;
     color: #0a0a0a;
     border-radius: 6px;
     width: 20%;
-      background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 80%;
+    background: linear-gradient(200deg, #ffec80, #d4af37);
+    height: 100%;
     padding-top: .1em;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
       main {
       margin: 1rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      row-gap: 1.1rem;
+      row-gap: 1rem;
       place-items: center;
     }
 
     .skill-container {
-      margin: .5rem;
+      margin: .3rem;
       width: 100%;
       display: flex;
       flex-direction: row;      /* الآن صف */
@@ -1518,8 +1943,8 @@ figure {
 
     /* الكرت */
     .shape {
-      width: 30%;
-      height: 88px;
+      width: 20%;
+      height: 65px;
       perspective: 1000px;
     }
 
@@ -1603,10 +2028,10 @@ figure {
     align-items: center;
   }
   #s3-header p{
-    width: 100%;
+    width: 50%;
     text-align: center;
     color: var(--p-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   #s3-header h1{
     margin: 0;
@@ -1614,26 +2039,26 @@ figure {
     border-radius: 6px;
     width: 20%;
       background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 80%;
-    font-size: 1.8rem;
+    height: 100%;
+    font-size: 1.2rem;
   }
 
   #s3-header a{
-        margin: 0;
+    margin: 0;
     color: #0a0a0a;
     border-radius: 6px;
     width: 20%;
-      background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 80%;
+    background: linear-gradient(200deg, #ffec80, #d4af37);
+    height: 100%;
     padding-top: .1em;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
 .chart-section {
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     grid-column: 1;
     width: 100%;
-    height: 25vh;
+    height: 30vh;
     background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
     padding: 0.5rem;
     border-radius: 20px;
@@ -1651,7 +2076,7 @@ figure {
 
 /* Canvas لتأثير glow خفيف */
 .chart-section canvas {
-  padding-top: 1rem;
+  padding-top: .1rem;
   width: 100%;
   height: 100%;
   display: block;
@@ -1695,8 +2120,8 @@ figure {
   padding: 1rem;
     text-align: justify;
   color: #e0d8d8;
-    font-size:  1rem;
-    line-height: 1.1;
+    font-size:  .7rem;
+    line-height: 1.2;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
@@ -1707,16 +2132,16 @@ figure {
     transform: translateY(0);
 }
 
-
 #main-cv{
   display: block;
   margin: 0;
 }
 
 .cv-section {
-    margin-top: 2%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 60vw;
-    height: 25vh;
+    height: 24vh;
     text-align: center;
     color: #fff;
     background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
@@ -1726,7 +2151,7 @@ figure {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease, transform 0.3s ease;
-    perspective: 1000px;
+    perspective: 100px;
 }
 
 
@@ -1740,8 +2165,8 @@ figure {
 }
 
 .cv-title {
-  margin: .6rem;
-  font-size: 1.2rem;
+  margin: .1rem;
+  font-size: .8rem;
   text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff44;
 }
 
@@ -1749,18 +2174,18 @@ figure {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: .4rem;
+  gap: .2rem;
   width: 100%;
-  height: 35%;
-  margin-top: .1rem;
+  height: 40%;
+  margin-top: 1.1rem;
 }
 
 
 .btn-3d {
-  margin-top: 1rem;
+  margin-top: .1rem;
   position: relative;
   width: 100%;
-  font-size: .9rem;
+  font-size: .6rem;
   font-weight: bold;
   color: #222;
   text-decoration: none;
@@ -1772,14 +2197,12 @@ figure {
 }
 
 #reseume-p{
-  margin: 1rem;
-    text-align: center;
+  margin: .1rem;
+  text-align: center;
   color: #e0d8d8;
-    font-size:  .8rem;
+  font-size:  .6rem;
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
-
-  }
-
+}
 
   #main-ca{
     margin-top: .3em;
@@ -1789,7 +2212,7 @@ figure {
 
   .card1 {
     position: relative;
-    width: 60vw;
+    width: 50vw;
     height: 25vh;
     border-radius: 20px;
     overflow: hidden;
@@ -1802,24 +2225,24 @@ figure {
 
   .card1-content h2 {
     margin: 0;
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center;
   }
 
   .card1-content p {
     color: #ccc;
     line-height: 1.1;
-    font-size: .9rem;
+    font-size: .6rem;
     text-align: justify;
-    margin: .3rem;
+    margin: .1rem;
   }
 
   .card1-buttons {
     text-align: center;
-    margin-top: .5rem;
+    margin-top: .4rem;
     padding: 0;
     width: 100%;
-    height: 4vh;
+    height: 40%;
     background: linear-gradient(100deg, #ffd700, #b8860b);
     border: none;
     border-radius: 8px;
@@ -1831,7 +2254,7 @@ figure {
 .card1-buttons a{
   display: block;
   padding: .5rem;
-  font-size: 1rem;
+  font-size: .6rem;
   text-align: center;
   color: #333;
   font-weight: bold;
@@ -1851,64 +2274,63 @@ figure {
     margin-top: .3rem;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 60vw;
-    height: 22vh;
+    height: 10vh;
     background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
     border-radius: 24px;
   }
 
     .contact1-so1 h2{
-    margin-top: .5rem;
+    margin-top: .2rem;
     padding: 0;
     text-align: center;
-    font-size: 1rem;
-      color: #888;
-  letter-spacing: 2px;
+    font-size: .8rem;
+    color: #888;
+    letter-spacing: 2px;
   }
   /* صغير ونظيف — ضع هذا في ملف CSS خارجي أو داخل <style> */
 .social-link2 {
   display: flex;
   align-items: center;      /* محاذاة عمودية في الوسط */
   justify-content: center;  /* محاذاة أفقية في الوسط */
-  gap: .3rem;                /* مسافة بين الصورة والنص */
+  gap: .2rem;                /* مسافة بين الصورة والنص */
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   transition: background .18s, transform .08s;
-  width: 60%;               /* الرابط ياخذ عرض مناسب */
-  margin: 0.25rem auto;       /* يوسّط الرابط نفسه داخل الحاوية */
-  padding: 0.2rem;           /* مساحة داخلية صغيرة */
+  width: 40%;               /* الرابط ياخذ عرض مناسب */
+  margin: 0.2rem auto;       /* يوسّط الرابط نفسه داخل الحاوية */
+  padding: 0.15rem;           /* مساحة داخلية صغيرة */
 }
 
 .social-link2:hover,
 .social-link2:focus {
   background: rgba(40, 38, 38, 1);
   transform: translateY(-1px);
-    box-shadow: 0 0 10px #00f2fe;
-
-outline: none;
+  box-shadow: 0 0 10px #00f2fe;
+  outline: none;
 }
 
 
 .social-icon {
-  width: 28px;
-  height: 28px;
+  width: 18px;
+  height: 18px;
   display: block;
 }
 .social-text {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 
   #contact-form {
   width: 60vw;
-  height: 32vh;
+  height: 50vh;
   margin: auto;
-  margin-top: .4rem;
-  margin-bottom: 1rem;
+  margin-top: .2rem;
+  margin-bottom: .8rem;
     background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
     border-radius: 24px;
@@ -1917,6 +2339,9 @@ outline: none;
   align-items: center;
 }
 
+.contact1-so1 h2{
+  font-size: .6rem;
+}
 
 #contact-form form {
   margin: 0;
@@ -1925,7 +2350,7 @@ outline: none;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: .4rem;
+  gap: .2rem;
   color: #fff;
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }
@@ -1934,7 +2359,7 @@ outline: none;
       margin: 0;
     padding: 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: .8rem;
   text-align: center;
   color: #888;
   letter-spacing: 2px;}
@@ -1944,7 +2369,7 @@ outline: none;
 #contact-form textarea {
   margin-top: 0.3rem;
   padding: 0.4rem;
-  font-size: 1rem;
+  font-size: .8rem;
   text-align: center;
   border: none;
   border-radius: 10px;
@@ -1999,17 +2424,87 @@ outline: none;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
+#main-s8 {
+  margin: 0;
+}
+
+#s8-div1, #s8-div2 {
+  margin: .2rem;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(25,25,35,0.8);
+  box-shadow: 0 0 10px #00f2fe;
+  font-size: .8rem;
+}
+#s8-div3{
+  display: block;
+}
+
+#s8-div3 h6{
+  font-size: 11px;
+}
+#s8-div3 ul li{
+  font-size:9px;
+  margin: 0;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h5{
+  color: wheat;
+  font-size: .8rem;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+}
+
+#s8-div1 h6{
+  font-size: .5rem;
+}
+
+#s8-div3 h6{
+  font-size: .6rem;
+}
+
+#s8-div2 h5{
+  font-size: .6rem;
+}
+
+#s8-div3 ul li{
+  font-size:.5rem;
+  margin: 3px;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h2{
+  color: wheat;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+  font-size: 1rem;
+}
+#s8-div2 ul{
+  font-size: .9rem;
+}
 }
 
 @media (max-width: 576px) {
 
+  body{
+    width: 100vw;
+    height: 100vh;
+  }
+
 .nav-item{
     position: relative;
-    padding: 6px 8px;
+    padding: 3px 4px;
     cursor: pointer;
     color: #222;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     overflow: hidden; /* لإخفاء الخطوط أثناء الحركة */
     transition: color var(--duration);
   }
@@ -2019,7 +2514,7 @@ outline: none;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: 400;
-    font-size: .7rem;
+    font-size: .5rem;
     display: flex; 
     align-items: center; 
     gap: 3px;
@@ -2030,8 +2525,14 @@ outline: none;
     height: 14px;
 }
 figure {
-  visibility: hidden;
-  width: 1%;
+  position: relative;
+  visibility: visible;
+  width: 30%;
+  font-size: 2px;
+}
+
+figure h3{
+  font-size: 4px;
 }
 
   .theme-toggle {
@@ -2064,6 +2565,16 @@ figure {
       transform: translateX(14px);
       background-color: #ffd93b; /* Yellow circle for light theme */
   }
+  .card::before {
+  content: "";
+  width: 100%;
+  height: 20vh;
+  position: absolute;
+  top: 0;
+  border:3px solid var(--card-border);
+  transition: all 0.5s ease;
+}
+
 
   .card-info {
   display: flex;
@@ -2075,17 +2586,18 @@ figure {
 }
 .image {
   display: block;
-  width: 28%;
-  height: 30%;
+  position: relative;
+  top: -60px;  width: 28%;
+  height: 28%;
   background-color: #1468BF;
   border-radius: 50%;
   border: 4px solid var(--img-border);
-  margin: 1rem;
+  margin: 0;
   transition: all 0.5s ease;
 }
 
 .card-info h1 {
-      font-size: 1rem;
+      font-size: .6rem;
       margin: 0;
       background: var(--bg-card-h1);
       -webkit-background-clip: text;
@@ -2095,7 +2607,7 @@ figure {
 }
 
 .card-info h2 {
-  font-size: small;
+      font-size: .6rem;
   color: var(--h2-color);
   letter-spacing: 2px;
   padding: 4px;
@@ -2105,8 +2617,9 @@ figure {
 #card-btn{
   width: 100%;
   display: flex;
+  position: relative;
   justify-content: space-evenly;
-  bottom: 0;
+  bottom: -40px;
 }
 
 .btn {
@@ -2115,11 +2628,11 @@ figure {
   color: var(--btn-text);
   text-decoration: none;
   border: none;
-  width: 20%;
+  width: 18%;
   padding-top: 4%;
   padding-bottom: 4%;
-  margin-bottom: 1.5rem;
-  font-size: .8rem;
+  margin-bottom: 0;
+  font-size: .6rem;
   font-weight: bold;
   cursor: pointer;
   display: inline-block;
@@ -2129,11 +2642,12 @@ figure {
 
 .typewrite{
   color: #888;
+  width: 100vw;
   letter-spacing: .4px;
   padding: 0;  
   text-decoration: none;
   margin: 0;
-  font-size: .7rem;
+  font-size: .5rem;
   text-align: start;
 }
 
@@ -2150,20 +2664,84 @@ figure {
   transform: translate(1%,-180%);
 }
 
-#s2-header{
-  height: 15%;
+  /*Education Section */
+#main-s8 {
+  margin: 0;
 }
+
+#s8-div1, #s8-div2 {
+  margin: .2rem;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(25,25,35,0.8);
+  box-shadow: 0 0 10px #00f2fe;
+  font-size: .8rem;
+}
+#s8-div3{
+  display: block;
+}
+
+#s8-div3 h6{
+  font-size: 11px;
+}
+#s8-div3 ul li{
+  font-size:9px;
+  margin: 0;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h5{
+  color: wheat;
+  font-size: .8rem;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+}
+
+#s8-div1 h6{
+  font-size: .5rem;
+}
+
+#s8-div3 h6{
+  font-size: .6rem;
+}
+
+#s8-div2 h5{
+  font-size: .6rem;
+}
+
+#s8-div3 ul li{
+  font-size:.5rem;
+  margin: 3px;
+}
+#s8-div3 ul li a{
+  color: wheat;
+}
+#s8-div1 h2{
+  color: wheat;
+}
+#s8-div2 .s8-h2{
+  color: wheat;
+  font-size: 1rem;
+}
+#s8-div2 ul{
+  font-size: .9rem;
+}
+
 
   #s2-header{
     opacity: 0.6;
+      height: 8%;
     text-align: center;
     align-items: center;
   }
   #s2-header p{
-    width: 100%;
+    width: 60%;
     text-align: center;
     color: var(--p-color);
-    font-size: .8rem;
+    font-size: .64rem;
   }
   #s2-header h1{
     padding: 0;
@@ -2172,9 +2750,8 @@ figure {
     border-radius: 6px;
     width: 20%;
       background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 100%;
-    padding-top: .1em;
-    font-size: 1.5rem;
+    height: 3vh;
+    font-size: 1rem;
   }
   #s2-header a{
         margin: 0;
@@ -2182,9 +2759,8 @@ figure {
     border-radius: 6px;
     width: 20%;
       background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 100%;
-    padding-top: .1em;
-    font-size: 1.5rem;
+    height: 3vh;
+    font-size: 1rem;
   }
 
       main {
@@ -2215,8 +2791,8 @@ figure {
 
     /* الكرت */
     .shape {
-      width: 30%;
-      height: 80px;
+      width: 34%;
+      height: 60px;
       perspective: 1000px;
     }
 
@@ -2242,7 +2818,7 @@ figure {
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      font-size: .8rem;
+      font-size: .6rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.6);
       background: linear-gradient(145deg, #1d3557, #457b9d);
       color: #f1faee;
@@ -2255,8 +2831,8 @@ figure {
     }
 
     .card-back img {
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
     }
 
     /* البار */
@@ -2289,30 +2865,32 @@ figure {
   #mai-s3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-row-gap: .5rem;
+      grid-row-gap: 0;
       align-items: center;
       justify-items: center;
       margin: 0;
   }
   #s3-header{
     opacity: 0.6;
+      height: 8%;
     text-align: center;
     align-items: center;
   }
   #s3-header p{
-    width: 100%;
+    width: 60%;
     text-align: center;
     color: var(--p-color);
-    font-size: .8rem;
+    font-size: .64rem;
   }
   #s3-header h1{
+    padding: 0;
     margin: 0;
     color: #0a0a0a;
     border-radius: 6px;
     width: 20%;
       background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 60%;
-    font-size: 1.5rem;
+    height: 3vh;
+    font-size: 1rem;
   }
 
   #s3-header a{
@@ -2321,17 +2899,16 @@ figure {
     border-radius: 6px;
     width: 20%;
       background: linear-gradient(200deg, #ffec80, #d4af37);
-    height: 60%;
-    padding-top: .1em;
-    font-size: 1.5rem;
+    height: 3vh;
+    font-size: 1rem;
   }
 
 .chart-section {
     margin-top: .2rem;
     grid-column: 1;
     width: 100%;
-    height: 15vh;
-    background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
+    height: 50%;
+    background: rgba(25,25,35,0.6);
     padding: 0.5rem;
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
@@ -2348,43 +2925,28 @@ figure {
 
 /* Canvas لتأثير glow خفيف */
 .chart-section canvas {
-  padding-top: 1rem;
+  padding: 0;
   width: 100%;
   height: 100%;
   display: block;
-  margin: 0 auto;
+  margin: 1em auto;
   filter: drop-shadow(0 0 6px #00f2fe)
           drop-shadow(0 0 12px #4facfe);
   border-radius: 12px;
 }
-/* نصوص المخطط */
+
 .chart-section .chartjs-render-monitor {
     border-radius: 12px;
+    width: 10%;
 }
 
-/* legend للألوان متوهجة بخفة */
-.chartjs-legend li span {
-    display: inline-block;
-    width: 1px;
-    height: 10px;
-    font-size: 1px;
-    margin-right: 5px;
-    border-radius: 4px;
-    box-shadow: 0 0 4px rgba(255,255,255,0.3);
-}
-/* ظهور مع تأثير طفيف عند hover */
-.chart-section:hover {
-    transform: translateY(-10px) scale(1.08) rotateX(4deg) rotateY(6deg);
-    box-shadow: 0 20px 35px rgba(0,255,255,0.15), 0 0 20px rgba(0,255,255,0.2) inset;
-    cursor: pointer;
-    z-index: 10; /* ليظهر فوق المخططات الأخرى */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+
+
 #s3-p{
     grid-column: 2/4;
     grid-row: 1/3;
         background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
-    padding: .5rem;
+    padding: 1.5rem;
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
 }
@@ -2392,8 +2954,8 @@ figure {
   padding: .5rem;
     text-align: justify;
   color: #e0d8d8;
-    font-size:  .83rem;
-    line-height: 1.1;
+    font-size:  .58rem;
+    line-height: 1.27;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
@@ -2411,19 +2973,19 @@ figure {
 }
 
 .cv-section {
-    margin-top: 2%;
+    margin-top: 6%;
     width: 80vw;
     height: 25vh;
     text-align: center;
     color: #fff;
     background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
-    padding: 0.5rem;
+    padding: 0.1rem;
     border-radius: 20px;
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease, transform 0.3s ease;
-    perspective: 1000px;
+    perspective: 100px;
 }
 
 
@@ -2437,8 +2999,8 @@ figure {
 }
 
 .cv-title {
-  margin: .6rem;
-  font-size: 1rem;
+  margin: .2rem;
+  font-size: .6rem;
   text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff44;
 }
 
@@ -2448,16 +3010,15 @@ figure {
   justify-content: space-between;
   gap: .4rem;
   width: 100%;
-  height: 40%;
+  height: 35%;
   margin-top: .1rem;
 }
 
 
 .btn-3d {
-  margin-top: 1rem;
-  position: relative;
+  margin-top: .6rem;
   width: 100%;
-  font-size: .8rem;
+  font-size: .4rem;
   font-weight: bold;
   color: #222;
   text-decoration: none;
@@ -2469,12 +3030,11 @@ figure {
 }
 
 #reseume-p{
-  margin: .6rem;
+  margin: .5rem;
     text-align: center;
   color: #e0d8d8;
-    font-size:  .8rem;
+    font-size:  .6rem;
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
-
   }
 
 
@@ -2485,38 +3045,39 @@ figure {
 }
 
   .card1 {
-    position: relative;
+    padding: 0;
     width: 80vw;
-    height: 25vh;
+    height: 26vh;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     transform-style: preserve-3d;
     transition: transform 0.1s ease, box-shadow 0.3s ease;
     background: #2b2b2b;
-    margin-top: .4em;
+    margin-top: .8em;
   }
 
   .card1-content h2 {
     margin: 0;
-    font-size: .8rem;
+    padding: 0;
+    font-size: .6rem;
     text-align: center;
   }
 
   .card1-content p {
     color: #ccc;
     line-height: 1.1;
-    font-size: .7rem;
+    font-size: .5rem;
     text-align: justify;
     margin: .3rem;
   }
 
   .card1-buttons {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: .4rem;
     padding: 0;
     width: 100%;
-    height: 4vh;
+    height: 5vh;
     background: linear-gradient(100deg, #ffd700, #b8860b);
     border: none;
     border-radius: 8px;
@@ -2528,7 +3089,7 @@ figure {
 .card1-buttons a{
   display: block;
   padding: .5rem;
-  font-size: .8rem;
+  font-size: .6rem;
   text-align: center;
   color: #333;
   font-weight: bold;
@@ -2545,23 +3106,23 @@ figure {
   }
 
   .contact1-so1{
-    margin-top: .6rem;
+    margin-top: 2rem;
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 80vw;
-    height: 20vh;
+    height: 10vh;
     background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
     border-radius: 24px;
   }
 
     .contact1-so1 h2{
-    margin-top: .3rem;
+    margin-top: .1rem;
     padding: 0;
     text-align: center;
-    font-size: .6rem;
+    font-size: .5rem;
       color: #888;
   letter-spacing: 2px;
   }
@@ -2570,13 +3131,13 @@ figure {
   display: flex;
   align-items: center;      /* محاذاة عمودية في الوسط */
   justify-content: center;  /* محاذاة أفقية في الوسط */
-  gap: .3rem;                /* مسافة بين الصورة والنص */
+  gap: .1rem;                /* مسافة بين الصورة والنص */
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   transition: background .18s, transform .08s;
-  width: 60%;               /* الرابط ياخذ عرض مناسب */
-  margin: 0.25rem auto;       /* يوسّط الرابط نفسه داخل الحاوية */
-  padding: 0.2rem;           /* مساحة داخلية صغيرة */
+  width: 20%;               /* الرابط ياخذ عرض مناسب */
+  margin: 0.1rem auto;       /* يوسّط الرابط نفسه داخل الحاوية */
+  padding: 0;           /* مساحة داخلية صغيرة */
 }
 
 .social-link2:hover,
@@ -2590,19 +3151,19 @@ outline: none;
 
 
 .social-icon {
-  width: 18px;
-  height: 18px;
+  width: 10px;
+  height: 10px;
   display: block;
 }
 .social-text {
   font-weight: 600;
-  font-size: .5rem;
+  font-size: .4rem;
 }
 
 
   #contact-form {
   width: 80vw;
-  height: 38vh;
+  height: 50vh;
   margin: auto;
   margin-top: .4rem;
   margin-bottom: 1.4rem;
