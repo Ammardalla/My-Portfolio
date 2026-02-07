@@ -811,8 +811,8 @@ main {
 
 .card1 {
   position: relative;
-  width: 30vw;
-  height: 70vh;
+  width: 28vw;
+  height: 68vh;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.6);
@@ -836,7 +836,7 @@ main {
 
 .card1 img {
   width: 100%;
-  height: 30%;
+  height: 40%;
   display: block;
   transform: translateZ(40px);
   transition: transform 0.3s ease;
@@ -2527,38 +2527,39 @@ figure h3{
 figure {
   position: relative;
   visibility: visible;
-  width: 30%;
+  width: 36%;
   font-size: 2px;
 }
 
 figure h3{
-  font-size: 4px;
+  font-size: 8px;
 }
 
   .theme-toggle {
+    margin-right: 4px;
     cursor: pointer;
-    width: 40px;
-    height: 20px;
+    width: 30px;
+    height: 16px;
     border-radius: 20px;
     background: linear-gradient(145deg, #3a3a3a, #2a2a2a); /* Dark gradient by default */
     position: relative;
     box-shadow: 0 2px 4px rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
-    padding: 4px;
+    padding: 3px;
     transition: background 0.5s, box-shadow 0.5s;
   }
 
     .toggle-circle {
-    width: 10x;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: #f0f0ff; /* Light circle for dark theme */
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.5s, background-color 0.5s;
-    font-size: 12px;
+    font-size: 8px;
   }
 
     body.light .toggle-circle {
@@ -2587,7 +2588,8 @@ figure h3{
 .image {
   display: block;
   position: relative;
-  top: -60px;  width: 28%;
+  top: -140px;
+  width: 48%;
   height: 28%;
   background-color: #1468BF;
   border-radius: 50%;
@@ -2597,7 +2599,7 @@ figure h3{
 }
 
 .card-info h1 {
-      font-size: .6rem;
+      font-size: 1.8rem;
       margin: 0;
       background: var(--bg-card-h1);
       -webkit-background-clip: text;
@@ -2607,7 +2609,7 @@ figure h3{
 }
 
 .card-info h2 {
-      font-size: .6rem;
+      font-size: .7rem;
   color: var(--h2-color);
   letter-spacing: 2px;
   padding: 4px;
@@ -2619,7 +2621,7 @@ figure h3{
   display: flex;
   position: relative;
   justify-content: space-evenly;
-  bottom: -40px;
+  bottom: -120px;
 }
 
 .btn {
@@ -2629,7 +2631,7 @@ figure h3{
   text-decoration: none;
   border: none;
   width: 18%;
-  padding-top: 4%;
+  padding-top: 2%;
   padding-bottom: 4%;
   margin-bottom: 0;
   font-size: .6rem;
@@ -2643,20 +2645,21 @@ figure h3{
 .typewrite{
   color: #888;
   width: 100vw;
-  letter-spacing: .4px;
+  height: 15vh;
+  letter-spacing: .1px;
   padding: 0;  
   text-decoration: none;
   margin: 0;
-  font-size: .5rem;
+  font-size: 1rem;
   text-align: start;
 }
 
 .card:hover .card-info {
-  transform: translate(30%,-260%);
+  transform: translate(32%,-140%);
 }
 
 .card:hover .image {
-  transform: scale(1.3) translate(-90%,-30%);
+  transform: scale(1.3) translate(-40%,10%);
 }
 
 .card:hover h4 {
@@ -2670,7 +2673,7 @@ figure h3{
 }
 
 #s8-div1, #s8-div2 {
-  margin: .2rem;
+  margin: 1rem;
   background: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -2694,26 +2697,26 @@ figure h3{
 }
 #s8-div1 h5{
   color: wheat;
-  font-size: .8rem;
+  font-size: 1rem;
 }
 #s8-div2 .s8-h2{
   color: wheat;
 }
 
 #s8-div1 h6{
-  font-size: .5rem;
+  font-size: .8rem;
 }
 
 #s8-div3 h6{
-  font-size: .6rem;
+  font-size: 1rem;
 }
 
 #s8-div2 h5{
-  font-size: .6rem;
+  font-size: 1rem;
 }
 
 #s8-div3 ul li{
-  font-size:.5rem;
+  font-size:.6rem;
   margin: 3px;
 }
 #s8-div3 ul li a{
@@ -2744,7 +2747,7 @@ figure h3{
     font-size: .64rem;
   }
   #s2-header h1{
-    padding: 0;
+    padding: 2px;
     margin: 0;
     color: #0a0a0a;
     border-radius: 6px;
@@ -2764,20 +2767,21 @@ figure h3{
   }
 
       main {
-      margin: 2rem;
+      margin: 1rem;
+      margin-top: 3rem;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      row-gap: 1rem;
+      row-gap: 2.5rem;
       place-items: center;
     }
 
     .skill-container {
       margin: .5rem;
-      width: 100%;
+      width: 96%;
       display: flex;
-      flex-direction: row;      /* الآن صف */
+      flex-direction: row;    
       align-items: center;
-      gap: 0;              /* مسافة بين الكرت والبار */
+      gap: 1px;              /* مسافة بين الكرت والبار */
       opacity: 0;
       justify-content: space-around;
       transform: translateY(30px);
@@ -2837,8 +2841,8 @@ figure h3{
 
     /* البار */
     .skill-bar-wrapper {
-      width: 60%;
-      height: 18px;
+      width: 65%;
+      height: 14px;
       border-radius: 10px;
       overflow: hidden;
       background: linear-gradient(180deg, #1b2735, #0d1117);
@@ -2883,7 +2887,7 @@ figure h3{
     font-size: .64rem;
   }
   #s3-header h1{
-    padding: 0;
+    padding: 1px;
     margin: 0;
     color: #0a0a0a;
     border-radius: 6px;
@@ -2907,7 +2911,7 @@ figure h3{
     margin-top: .2rem;
     grid-column: 1;
     width: 100%;
-    height: 50%;
+    height: 40%;
     background: rgba(25,25,35,0.6);
     padding: 0.5rem;
     border-radius: 20px;
@@ -2916,6 +2920,10 @@ figure h3{
     transform: translateY(30px);
     transition: all 0.6s ease, transform 0.3s ease;
     perspective: 1000px;
+}
+#skillsDoughnut{
+  padding: 0;
+  height: 10px;
 }
 
 .chart-section.show {
@@ -2926,7 +2934,7 @@ figure h3{
 /* Canvas لتأثير glow خفيف */
 .chart-section canvas {
   padding: 0;
-  width: 100%;
+  width: 80%;
   height: 100%;
   display: block;
   margin: 1em auto;
@@ -2937,7 +2945,7 @@ figure h3{
 
 .chart-section .chartjs-render-monitor {
     border-radius: 12px;
-    width: 10%;
+    width: 100%;
 }
 
 
@@ -2946,16 +2954,17 @@ figure h3{
     grid-column: 2/4;
     grid-row: 1/3;
         background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 20px;
+    height: 80vh;
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
 }
 #s3 #s3-p.item {
   padding: .5rem;
     text-align: justify;
   color: #e0d8d8;
-    font-size:  .58rem;
-    line-height: 1.27;
+    font-size:  .73rem;
+    line-height: 1.1;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
@@ -2973,9 +2982,10 @@ figure h3{
 }
 
 .cv-section {
-    margin-top: 6%;
+    margin-top: 5%;
+    margin: 5rem;
     width: 80vw;
-    height: 25vh;
+    height: 15vh;
     text-align: center;
     color: #fff;
     background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
@@ -3006,11 +3016,12 @@ figure h3{
 
 .cv-buttons {
   display: flex;
+  padding: 0;
   flex-direction: row;
   justify-content: space-between;
   gap: .4rem;
   width: 100%;
-  height: 35%;
+  height: 10%;
   margin-top: .1rem;
 }
 
@@ -3018,7 +3029,8 @@ figure h3{
 .btn-3d {
   margin-top: .6rem;
   width: 100%;
-  font-size: .4rem;
+  padding-top: 7px;
+  font-size: .6rem;
   font-weight: bold;
   color: #222;
   text-decoration: none;
@@ -3039,15 +3051,18 @@ figure h3{
 
 
   #main-ca{
-    margin-top: .3em;
+    margin-top: 2em;
     display: block;
   opacity: 0.8;
 }
-
+#main-ca img{
+  height: 32%;
+}
   .card1 {
+    margin: 3rem;
     padding: 0;
     width: 80vw;
-    height: 26vh;
+    height: 20vh;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.6);
@@ -3060,24 +3075,24 @@ figure h3{
   .card1-content h2 {
     margin: 0;
     padding: 0;
-    font-size: .6rem;
+    font-size: 1rem;
     text-align: center;
   }
 
   .card1-content p {
     color: #ccc;
     line-height: 1.1;
-    font-size: .5rem;
+    font-size: .6rem;
     text-align: justify;
     margin: .3rem;
   }
 
   .card1-buttons {
     text-align: center;
-    margin-top: .4rem;
+    margin-top: 1rem;
     padding: 0;
     width: 100%;
-    height: 5vh;
+    height: 3.5vh;
     background: linear-gradient(100deg, #ffd700, #b8860b);
     border: none;
     border-radius: 8px;
@@ -3098,11 +3113,11 @@ figure h3{
 
   #main-contact{
     display: block;
-    opacity: 0.8;
+    opacity: 0.9;
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
   }
 
   .contact1-so1{
@@ -3113,7 +3128,7 @@ figure h3{
     align-items: center;
     width: 80vw;
     height: 10vh;
-    background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
+    background: rgba(25,25,35,1); /* شبه شفاف لإعطاء depth */
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
     border-radius: 24px;
   }
@@ -3135,7 +3150,7 @@ figure h3{
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   transition: background .18s, transform .08s;
-  width: 20%;               /* الرابط ياخذ عرض مناسب */
+  width: 30%;               /* الرابط ياخذ عرض مناسب */
   margin: 0.1rem auto;       /* يوسّط الرابط نفسه داخل الحاوية */
   padding: 0;           /* مساحة داخلية صغيرة */
 }
@@ -3157,17 +3172,17 @@ outline: none;
 }
 .social-text {
   font-weight: 600;
-  font-size: .4rem;
+  font-size: .6rem;
 }
 
 
   #contact-form {
   width: 80vw;
-  height: 50vh;
+  height: 36vh;
   margin: auto;
-  margin-top: .4rem;
+  margin-top: 2.4rem;
   margin-bottom: 1.4rem;
-    background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
+    background: rgba(25,25,35,1); /* شبه شفاف لإعطاء depth */
     box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
     border-radius: 24px;
   display: flex;

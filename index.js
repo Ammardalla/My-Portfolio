@@ -366,7 +366,7 @@ function createCharts() {
     new Chart(doughnutCtx, {
         type: 'doughnut',
         data: {
-            labels: ['HTML', 'CSS', 'JS', 'TS', 'Git', 'GitHub', 'React', 'Node', 'SQL'],
+            labels: ['HTML', 'CSS', 'JS', 'TS', 'Git', 'GitHub', 'React', 'Bootstrap', 'SEO'],
             datasets: [{
                 label: 'Skill Level',
                 data: [90, 85, 80, 75, 70, 85, 80, 75, 70],
