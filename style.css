@@ -1096,7 +1096,7 @@ main {
 }
 
 #s8-div1 h5{
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 #s8-div1 h6{
@@ -1108,15 +1108,15 @@ main {
   grid-auto-flow: column;
   gap: 10px;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #s8-div3 h6{
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 #s8-div2 h5{
-  font-size: 1.6rem;
+  font-size: 1rem;
 }
 
 #s8-div3 ul li{
@@ -1131,7 +1131,7 @@ main {
 }
 #s8-div2 .s8-h2{
   color: wheat;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 #s8-div2 ul{
   font-size: .9rem;
@@ -2673,7 +2673,7 @@ figure h3{
 }
 
 #s8-div1, #s8-div2 {
-  margin: 1rem;
+  margin: 2%;
   background: #fff;
   padding: 10px;
   border-radius: 8px;
@@ -2697,22 +2697,22 @@ figure h3{
 }
 #s8-div1 h5{
   color: wheat;
-  font-size: 1rem;
+  font-size: .8rem;
 }
 #s8-div2 .s8-h2{
   color: wheat;
 }
 
 #s8-div1 h6{
-  font-size: .8rem;
+  font-size: .6rem;
 }
 
 #s8-div3 h6{
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 #s8-div2 h5{
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 #s8-div3 ul li{
@@ -2727,7 +2727,7 @@ figure h3{
 }
 #s8-div2 .s8-h2{
   color: wheat;
-  font-size: 1rem;
+  font-size: .8rem;
 }
 #s8-div2 ul{
   font-size: .9rem;
