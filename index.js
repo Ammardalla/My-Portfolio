@@ -517,37 +517,112 @@ function resetItems(section){
 }
 
 function showNextItem(){
-    const items = sections[currentSection].querySelectorAll(".item, .chart-section");
-    if(currentItem < items.length){
-        const el = items[currentItem];
-        el.classList.add("show");
-        const bar = el.querySelector(".skill-bar");
-        const wrapper = el.querySelector(".skill-bar-wrapper");
-        if(bar && wrapper){
-            wrapper.classList.add("visible");
-            requestAnimationFrame(()=>{ bar.style.width = bar.dataset.progress; });
-        }
-        if(el.classList.contains('chart-section')) createCharts();
-        currentItem++;
+    const currentSec = sections[currentSection];
+    const items = currentSec.querySelectorAll(".item, .chart-section");
+
+if(currentSec.id === "s2"){
+
+    if(currentItem === 0){
+
+        items.forEach((el, index)=>{
+
+            setTimeout(()=>{
+                el.classList.add("show");
+
+                const bar = el.querySelector(".skill-bar");
+                const wrapper = el.querySelector(".skill-bar-wrapper");
+
+                if(bar && wrapper){
+                    wrapper.classList.add("visible");
+                    requestAnimationFrame(()=>{
+                        bar.style.width = bar.dataset.progress;
+                    });
+                }
+
+            }, index * 80); // stagger احترافي
+        });
+
+        currentItem = items.length;
         return true;
     }
+
     return false;
 }
 
-function hidePrevItem(){
-    const items = sections[currentSection].querySelectorAll(".item, .chart-section");
-    if(currentItem > 0){
-        currentItem--;
+
+    // ===== باقي السكاشن كما كانت =====
+    if(currentItem < items.length){
         const el = items[currentItem];
-        el.classList.remove("show");
+        el.classList.add("show");
+
         const bar = el.querySelector(".skill-bar");
         const wrapper = el.querySelector(".skill-bar-wrapper");
+
+        if(bar && wrapper){
+            wrapper.classList.add("visible");
+            requestAnimationFrame(()=>{
+                bar.style.width = bar.dataset.progress;
+            });
+        }
+
+        if(el.classList.contains('chart-section')){
+            createCharts();
+        }
+
+        currentItem++;
+        return true;
+    }
+
+    return false;
+}
+
+
+function hidePrevItem(){
+    const currentSec = sections[currentSection];
+    const items = currentSec.querySelectorAll(".item, .chart-section");
+
+    // ===== سكشن المهارات الأول s2 فقط =====
+    if(currentSec.id === "s2"){
+
+        if(currentItem > 0){
+
+            items.forEach(el=>{
+                el.classList.remove("show");
+
+                const bar = el.querySelector(".skill-bar");
+                const wrapper = el.querySelector(".skill-bar-wrapper");
+
+                if(bar && wrapper){
+                    wrapper.classList.remove("visible");
+                    bar.style.width = "0%";
+                }
+            });
+
+            currentItem = 0;
+            return true; // مهم حتى لا يتعطل السكروول
+        }
+
+        return false;
+    }
+
+    // ===== باقي السكاشن كما كانت =====
+    if(currentItem > 0){
+        currentItem--;
+
+        const el = items[currentItem];
+        el.classList.remove("show");
+
+        const bar = el.querySelector(".skill-bar");
+        const wrapper = el.querySelector(".skill-bar-wrapper");
+
         if(bar && wrapper){
             wrapper.classList.remove("visible");
             bar.style.width = "0%";
         }
+
         return true;
     }
+
     return false;
 }
 

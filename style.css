@@ -131,7 +131,9 @@ header {
   color: var(--blue-dark-gray);
   text-decoration: none;
   transition: all 0.3s ease;
-  font-weight: 700;
+    font-family: 'Pacifico', cursive;
+
+  font-weight: 300;
   font-size: 1rem;
   display: flex; 
   align-items: center; 
@@ -377,12 +379,13 @@ header {
   color: var(--btn-text);
   text-decoration: none;
   border: none;
-  width: 18%;
-  padding-top: 4%;
-  padding-bottom: 4%;
+  width: 16%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   margin-bottom: 3rem;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Pacifico', cursive;
+  font-weight: 100;
   cursor: pointer;
   display: inline-block;
   border-radius: 8px;
@@ -416,7 +419,8 @@ h4{
 .typewrite{
   color: #888;
   letter-spacing: 2px;
-  padding: 4px;  text-decoration: none;
+  padding: 4px; 
+  text-decoration: none;
   margin: 0;
   font-size: 1.5rem;
   text-align: center;
@@ -448,6 +452,7 @@ figure {
 }
 
 .fig-h3{
+  
   display:block;
   width:100%;
   padding: .1rem;
@@ -552,6 +557,8 @@ h3:nth-child(10){ transform:translateZ(45px); }
 }
 
 #s2-header p{
+    font-family: 'Inter', sans-serif;
+
   width: 100%;
   text-align: center;
   color: var(--p-color);
@@ -587,17 +594,27 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0;
-  opacity: 0;
   justify-content: space-around;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+  transition: 
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.22,1,0.36,1),
+    box-shadow 0.6s ease;
 }
 
 .skill-container.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  box-shadow: 0 0 30px rgba(79,172,254,0.25);
 }
+.skill-container.show .card-face {
+  box-shadow: 
+    0 0 20px rgba(79,172,254,0.6),
+    0 0 40px rgba(79,172,254,0.3);
+}
+
 
 .shape {
   width: 26%;
@@ -618,6 +635,7 @@ main {
 }
 
 .card-face {
+    font-family: 'Dancing Script', cursive;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -675,8 +693,9 @@ main {
 
 #mai-s3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 1rem;
+  grid-column-gap: 3rem;
   align-items: center;
   justify-items: center;
   margin: 0;
@@ -713,7 +732,7 @@ main {
 .chart-section {
   margin-top: 1rem;
   grid-column: 1;
-  width: 50%;
+  width: 80%;
   background: rgba(25,25,35,0.6); /* شبه شفاف لإعطاء depth */
   padding: 0.5rem;
   border-radius: 20px;
@@ -761,12 +780,19 @@ main {
 }
 
 #s3-p{
-  grid-column: 2;
-  grid-row: 1/3;
+  grid-column: 2/4;
+  grid-row: 1/4;
+}
+
+.s3-pp{
+  font-family: 'Inter', sans-serif;
   background: rgba(25,25,35,0.8);
+  width: 60vw;
+  margin: .3rem;
   padding: 1rem;
   border-radius: 20px;
-  box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;
+  box-shadow: 0 12px 30px rgba(133, 229, 229, 0.3), 0 0 10px rgba(173, 242, 242, 0.5) inset;
+
 }
 
 #s3 #s3-p.item {
@@ -774,7 +800,7 @@ main {
   text-align: justify;
   color: #e0d8d8;
   font-size:  1.1rem;
-  line-height: 1.4;
+  line-height: 1.2;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease;
@@ -786,7 +812,7 @@ main {
 }
 
 .cv-section {
-  margin-top: 30%;
+  margin: 1.5rem;
   width: 100%;
   text-align: center;
   padding: 80px 80px;
@@ -811,7 +837,7 @@ main {
 }
 
 .cv-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 30px;
   text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff44;
 }
@@ -826,8 +852,8 @@ main {
 .btn-3d {
   position: relative;
   display: inline-block;
-  padding: 15px 35px;
-  font-size: 1.1rem;
+  padding: 5px 25px;
+  font-size: 1rem;
   font-weight: bold;
   color: #222;
   text-decoration: none;
@@ -854,6 +880,7 @@ main {
 }
 
 .btn-3d.download {
+  padding: 5px 8px;
   background: linear-gradient(100deg, #ffd700, #b8860b);
   box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
@@ -942,7 +969,7 @@ main {
 
 .card1-buttons {
   text-align: center;
-  margin-top: 10%;
+  margin-top: 8%;
   padding: 10px 20px;
   background: linear-gradient(100deg, #ffd700, #b8860b);
   border: none;
@@ -962,7 +989,7 @@ main {
   margin: 0;
   color: #0a0a0a;
   border-radius: 6px;
-  width: 30%;
+  width: 18vw;
   background: linear-gradient(90deg, #f5d76e, #d4af37);
   height: 100%;
   font-weight: bold;
@@ -972,7 +999,7 @@ main {
 }
 
 #main-contact{
-  opacity: 0.8;
+  opacity: 1;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -992,7 +1019,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 40vw;
-  background: rgba(25,25,35,0.8); /* شبه شفاف لإعطاء depth */
+  background: rgba(25,25,35,0.9); /* شبه شفاف لإعطاء depth */
   box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
   border-radius: 24px;
 }
@@ -1058,7 +1085,7 @@ main {
   width: 40vw;
   height: 80vh;
   margin: auto;
-  background: rgba(25,25,35,0.8);
+  background: rgba(25,25,35,0.9);
   box-shadow: 0 6px 15px rgba(0,255,255,0.08), 0 0 10px rgba(0,255,255,0.1) inset;  
   border-radius: 24px;
   display: flex;
@@ -1168,7 +1195,7 @@ main {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  background: rgba(25,25,35,0.8);
+  background: rgba(25,25,35,0.9);
   box-shadow: 0 0 10px #00f2fe;
 }
 
